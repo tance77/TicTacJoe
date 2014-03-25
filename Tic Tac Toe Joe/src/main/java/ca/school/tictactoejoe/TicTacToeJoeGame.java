@@ -63,7 +63,7 @@ public class TicTacToeJoeGame {
                     mTicTacToeBoard[i] = current;
             }
         }
-        do {
+        do { //else the computer can go wherever it wants
             move = mRandom.nextInt(getBoardSize());
         }while (mTicTacToeBoard[move] == PLAYER1 || mTicTacToeBoard[move] == COMPUTER1);
         setCurMove(COMPUTER1, move);
@@ -99,7 +99,7 @@ public class TicTacToeJoeGame {
                 return 3; //computer wins on 3
             }
         }
-        //Checking Diaganol Wins
+        //Checking Diagonal Wins
         if ((mTicTacToeBoard[0] == PLAYER1 &&
                 mTicTacToeBoard[4] == PLAYER1 &&
                 mTicTacToeBoard[8] == PLAYER1) ||
