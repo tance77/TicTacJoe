@@ -6,17 +6,15 @@
     <item android:id="@+id/action_settings"
         android:title="@string/action_settings"
         android:orderInCategory="100"
-        app:showAsAction="never" />
+        app:showAsAction="always" />
 
     <item
         android:id="@+id/new_game"
         android:title="@string/new_game"
-        android:icon="@android:drawable/ic_media_play">
-    </item>
+        android:icon="@android:drawable/ic_media_play"/>
     <item
         android:id="@+id/exit_game"
         android:title="@string/exit_game"
-        android:icon="@android:drawable/ic_delete">
-    </item>
+        android:icon="@android:drawable/ic_delete"/>
 
 </menu>
