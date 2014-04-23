@@ -37,5 +37,8 @@
         Joe. Can you beat Joe?
     </string>
 
+    <string name="new_game">New Game</string>
+    <string name="exit_game">Exit Game</string>
+
 
 </resources>
