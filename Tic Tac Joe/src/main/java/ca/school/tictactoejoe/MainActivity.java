@@ -1,9 +1,11 @@
 package ca.school.tictactoejoe;
 
+import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -52,11 +54,89 @@ public class MainActivity extends ActionBarActivity {
         m_computerCount.setText(Integer.toString(m_computerCounter));
 
         m_Game = new TicTacJoeGame();
+        NewGame(); //actually start the game here
     }
 
-    private void NewGame()
+    private void NewGame() //starting up a new game and clearing the board
     {
-        
+        m_Game.ClearBoard();
+
+        for(int i = 0; i < m_boardButton.length; i++) //loop to set the board up to nothing
+        {
+            m_boardButton[i].setText("");
+            m_boardButton[i].setEnabled(true);
+            m_boardButton[i].setOnClickListener(new ButtonClickListener(i));
+        }
+
+        if(m_playerFirst)
+        {
+            m_info.setText(R.string.player_goes_first);
+            m_playerFirst = false;
+        }
+        else
+        {
+            m_info.setText(R.string.computer_turn); //setting the text on the screen probably wont see thie because the computer moves so fast
+            int computer_move = m_Game.getComputerMove(); //local variable for computers move
+            setMove(m_Game.COMPUTER1, computer_move);
+            m_playerFirst = true; //so when new games happens player goes first
+        }
+    }
+    private class ButtonClickListener implements View.OnClickListener
+    {
+        int location;
+        public ButtonClickListener(int location)
+        {
+            this.location = location;
+        }
+
+        @Override
+        public void onClick(View view) { //check to see if the game is over pretty much
+            if(m_gameOver && m_boardButton[location].isEnabled()){//run this if the game isnt ovev and the button is not disabled
+               setMove(m_Game.PLAYER1, location);
+
+                int winner = m_Game.WinnerCheck();
+
+                if(winner == 0){
+                    m_info.setText(R.string.computer_turn); //this happens so fast we wont see this
+                    int move = m_Game.getComputerMove();
+                    setMove(m_Game.COMPUTER1, move); //setting the move of the computer
+                    winner = m_Game.WinnerCheck();
+                }
+                if(winner == 0) { //game is still going because the computer didnt win above
+                    m_info.setText(R.string.player_turn); //displaying its players turn
+                }
+                else if(winner == 1){ //the game was a tie
+                    m_info.setText(R.string.tie);//displaying text as tie
+                    m_tieCounter++;
+                    m_tieCount.setText(Integer.toString(m_tieCounter)); //updating the tie counter on the screen
+                    m_gameOver = true;
+                }
+                else if(winner == 2) { //the player has won at this point
+                    m_info.setText(R.string.player_win);//displaying text as tie
+                    m_playerCounter++;
+                    m_playerCount.setText(Integer.toString(m_playerCounter)); //updating the tie counter on the screen
+                    m_gameOver = true;
+                }
+                else{ //the computer has won and winner is 3
+                    m_info.setText(R.string.computer_win);//displaying text as tie
+                    m_computerCounter++;
+                    m_computerCount.setText(Integer.toString(m_computerCounter)); //updating the tie counter on the screen
+                    m_gameOver = true;
+                }
+            }
+        }
+    }
+    private void setMove(char player, int location) //this set move calls tictacjoegame's setmove
+    {
+        m_Game.setCurMove(player, location);
+        m_boardButton[location].setEnabled(false); //so the player can not play in that spot
+        m_boardButton[location].setText(String.valueOf(player)); //x or o depending on who played
+        if(player == m_Game.PLAYER1){ //Giving the computer and human some color of their moves
+            m_boardButton[location].setTextColor(Color.GREEN); //player is green
+        }
+        else { //computer is red
+            m_boardButton[location].setTextColor(Color.RED);
+        }
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <item name="playarea" type="id"/>
     <item name="one" type="id"/>
     <item name="two" type="id"/>
     <item name="three" type="id"/>
@@ -10,7 +11,10 @@
     <item name="eight" type="id"/>
     <item name="nine" type="id"/>
     <item name="information" type="id"/>
+    <item name="player" type="id"/>
     <item name="player_count" type="id"/>
+    <item name="ties" type="id"/>
     <item name="tie_count" type="id"/>
+    <item name="computer_wins" type="id"/>
     <item name="times_joe_kicked_ass" type="id"/>
 </resources>
