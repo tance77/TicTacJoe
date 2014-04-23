@@ -1,1 +1,1 @@
-include ':Tic Tac Toe Joe'
+include 'Tic Tac Joe'

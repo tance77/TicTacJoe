@@ -4,8 +4,10 @@ import java.util.Random;
 
 /**
  * Created by lance on 3/24/14.
+ * This Java Class lets us get the computers move ands set moves where we go weather or
+ * we have a winner or not or a tie
  */
-public class TicTacToeJoeGame {
+public class TicTacJoeGame {
 
     private char mTicTacToeBoard[];
     private final static int SIZE_OF_BOARD = 9;
@@ -20,7 +22,7 @@ public class TicTacToeJoeGame {
         return SIZE_OF_BOARD;
     }
 
-    public TicTacToeJoeGame() {
+    public TicTacJoeGame() {
 
         mTicTacToeBoard = new char[SIZE_OF_BOARD];
 
