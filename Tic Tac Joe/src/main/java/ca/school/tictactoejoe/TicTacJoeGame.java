@@ -17,6 +17,7 @@ public class TicTacJoeGame {
     public static final char EMPTY_SPACE = ' ';
 
     public int player_move_count = 0;
+    public int computer_move_count = 0;
 
     private Random mRandom;
 
@@ -60,6 +61,9 @@ public class TicTacJoeGame {
             move = tmp[move];
             setCurMove(COMPUTER1, move);
             return move;
+        }
+        else if(computer_move_count == 1 && player_move_count == 2 && mTicTacToeBoard[4] == 'X' && (//WORK ON THIS MORE))
+        {
         }
         else {
             for (int i = 0; i < getBoardSize(); i++) { //Check to see if the computer player can move to win the game
