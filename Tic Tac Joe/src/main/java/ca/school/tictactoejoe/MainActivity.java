@@ -147,10 +147,10 @@ public class MainActivity extends Activity {
         m_boardButton[location].setEnabled(false); //so the player can not play in that spot
         m_boardButton[location].setText(String.valueOf(player)); //x or o depending on who played
         if(player == m_Game.PLAYER1){ //Giving the computer and human some color of their moves
-            m_boardButton[location].setTextColor(Color.GREEN); //player is green
+            m_boardButton[location].setTextColor(Color.rgb(173,216,230)); //player is green
         }
         else { //computer is red
-            m_boardButton[location].setTextColor(Color.RED);
+            m_boardButton[location].setTextColor(Color.rgb(196,116,81));
         }
     }
     @Override

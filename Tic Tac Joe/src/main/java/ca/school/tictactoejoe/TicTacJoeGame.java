@@ -52,7 +52,16 @@ public class TicTacJoeGame {
         //if the player is using the corner strategy
         if (player_move_count == 1 && (mTicTacToeBoard[0] == 'X' || mTicTacToeBoard[2] == 'X' || mTicTacToeBoard[6] == 'X' || mTicTacToeBoard[8] == 'X')) {
             setCurMove(COMPUTER1, 4);
-        } else {
+        }
+        //in the player goes in the middle computer must play in corners
+        else if(player_move_count == 1 && mTicTacToeBoard[4] == 'X'){
+            int tmp[] = {0,2,6,8};
+            move = mRandom.nextInt(4);
+            move = tmp[move];
+            setCurMove(COMPUTER1, move);
+            return move;
+        }
+        else {
             for (int i = 0; i < getBoardSize(); i++) { //Check to see if the computer player can move to win the game
                 if (mTicTacToeBoard[i] != PLAYER1 && mTicTacToeBoard[i] != COMPUTER1) {
                     char current = mTicTacToeBoard[i];
