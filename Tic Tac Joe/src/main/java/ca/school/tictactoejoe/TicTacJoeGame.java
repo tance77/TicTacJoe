@@ -62,8 +62,65 @@ public class TicTacJoeGame {
             setCurMove(COMPUTER1, move);
             return move;
         }
-        else if(computer_move_count == 1 && player_move_count == 2 && mTicTacToeBoard[4] == 'X' && (//WORK ON THIS MORE))
+        //the player starts in the middle computer plays on the top left and the player plays in bottom right
+        //the computer must play in corner 2 or 6
+        else if(computer_move_count == 1 &&
+                player_move_count == 2 &&
+                mTicTacToeBoard[4] == 'X' &&
+                mTicTacToeBoard[0] == 'O' &&
+                mTicTacToeBoard[8]== 'X')
         {
+            int tmp[] = {2,6};
+            move = mRandom.nextInt(2);
+            move = tmp[move];
+            setCurMove(COMPUTER1, move);
+            computer_move_count++;
+            return move;
+        }
+        //the player starts in the middle computer plays in the top right player plays in the bottom left
+        //computer must play in corner 0 or 8
+        else if(computer_move_count == 1 &&
+        player_move_count == 2 &&
+        mTicTacToeBoard[4] == 'X' &&
+        mTicTacToeBoard[2] == 'O' &&
+        mTicTacToeBoard[6]== 'X')
+        {
+            int tmp[] = {0,8};
+            move = mRandom.nextInt(2);
+            move = tmp[move];
+            setCurMove(COMPUTER1, move);
+            computer_move_count++;
+            return move;           
+        }
+        //player starts middle then computer plays bottom left then player plays top right
+        //computer must play in corner 0 or 8
+        else if(computer_move_count == 1 &&
+        player_move_count == 2 &&
+        mTicTacToeBoard[4] == 'X' &&
+        mTicTacToeBoard[6] == 'O' &&
+        mTicTacToeBoard[2]== 'X')
+        {
+            int tmp[] = {0,8};
+            move = mRandom.nextInt(2);
+            move = tmp[move];
+            setCurMove(COMPUTER1, move);
+            computer_move_count++;
+            return move;           
+        }
+        //player starts middle, computer plays bottom right, player plays top right
+        //computer must play corner 2 or 6
+        else if(computer_move_count == 1 &&
+        player_move_count == 2 &&
+        mTicTacToeBoard[4] == 'X' &&
+        mTicTacToeBoard[8] == 'O' &&
+        mTicTacToeBoard[0]== 'X')
+        {
+            int tmp[] = {2,6};
+            move = mRandom.nextInt(2);
+            move = tmp[move];
+            setCurMove(COMPUTER1, move);
+            computer_move_count++;
+            return move;           
         }
         else {
             for (int i = 0; i < getBoardSize(); i++) { //Check to see if the computer player can move to win the game
@@ -72,6 +129,7 @@ public class TicTacJoeGame {
                     mTicTacToeBoard[i] = COMPUTER1;
                     if (WinnerCheck() == 3) {
                         setCurMove(COMPUTER1, i);
+                        computer_move_count++;
                         return i;
                     } else
                         mTicTacToeBoard[i] = current;
@@ -84,6 +142,7 @@ public class TicTacJoeGame {
                     mTicTacToeBoard[i] = PLAYER1; //if the player were to win at this spot the computer needs to block
                     if (WinnerCheck() == 2) {
                         setCurMove(COMPUTER1, i);
+                        computer_move_count++;
                         return i;
                     } else
                         mTicTacToeBoard[i] = current; //if doesn't need to block set back to blank and continue
@@ -93,6 +152,7 @@ public class TicTacJoeGame {
                 move = mRandom.nextInt(getBoardSize());
             } while (mTicTacToeBoard[move] == PLAYER1 || mTicTacToeBoard[move] == COMPUTER1);
             setCurMove(COMPUTER1, move);
+            computer_move_count++;
             return move;
         }
         return 4;
