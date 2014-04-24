@@ -50,7 +50,7 @@ public class TicTacJoeGame {
     public int getComputerMove() {
         int move;
         //if the player is using the corner strategy
-        if (player_move_count == 1 && (mTicTacToeBoard[0] == 'X' || mTicTacToeBoard[2] == 'X' || mTicTacToeBoard[6] == 'X' || mTicTacToeBoard[8] == 'X')) {
+        if (player_move_count == 1 && (mTicTacToeBoard[0] == 'X' || mTicTacToeBoard[2] == 'X' || mTicTacToeBoard[6] == 'X' || mTicTacToeBoard[8] == 'X') && (mTicTacToeBoard[4] == 'X' ||mTicTacToeBoard[4] != 'O')) {
             setCurMove(COMPUTER1, 4);
         }
         //in the player goes in the middle computer must play in corners
