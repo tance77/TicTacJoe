@@ -113,16 +113,28 @@ public class MainActivity extends Activity {
                         m_tieCounter++;
                         m_tieCount.setText(Integer.toString(m_tieCounter)); //updating the tie counter on the screen
                         m_gameOver = true;
+                        for(int i = 0; i < m_boardButton.length; i++) //loop to set the board up to nothing
+                        {
+                            m_boardButton[i].setEnabled(false);
+                        }
                     } else if (winner == 2) { //the player has won at this point
                         m_info.setText(R.string.player_win);//displaying text as tie
                         m_playerCounter++;
                         m_playerCount.setText(Integer.toString(m_playerCounter)); //updating the tie counter on the screen
                         m_gameOver = true;
+                        for(int i = 0; i < m_boardButton.length; i++) //loop to set the board up to nothing
+                        {
+                            m_boardButton[i].setEnabled(false); //locks the game when it is over
+                        }
                     } else { //the computer has won and winner is 3
                         m_info.setText(R.string.computer_win);//displaying text as tie
                         m_computerCounter++;
                         m_computerCount.setText(Integer.toString(m_computerCounter)); //updating the tie counter on the screen
                         m_gameOver = true;
+                        for(int i = 0; i < m_boardButton.length; i++) //loop to set the board up to nothing
+                        {
+                            m_boardButton[i].setEnabled(false);
+                        }
                     }
                 }
             }

@@ -16,6 +16,8 @@ public class TicTacJoeGame {
     public static final char COMPUTER1 = 'O';
     public static final char EMPTY_SPACE = ' ';
 
+    public int player_move_count = 0;
+
     private Random mRandom;
 
     public static int getBoardSize() {
@@ -32,44 +34,55 @@ public class TicTacJoeGame {
     }
 
     public void ClearBoard() {
-        for (int i = 0; i < SIZE_OF_BOARD; i++)
+        for (int i = 0; i < SIZE_OF_BOARD; i++) {
             mTicTacToeBoard[i] = EMPTY_SPACE;
+        }
+        player_move_count = 0;
+
     }
 
     public void setCurMove(char player, int location) {
+        if(player == 'X')
+            player_move_count++;
         mTicTacToeBoard[location] = player;
     }
 
     public int getComputerMove() {
         int move;
-        for (int i = 0; i < getBoardSize(); i++) { //Check to see if the computer player can move to win the game
-            if (mTicTacToeBoard[i] != PLAYER1 && mTicTacToeBoard[i] != COMPUTER1) {
-                char current = mTicTacToeBoard[i];
-                mTicTacToeBoard[i] = COMPUTER1;
-                if (WinnerCheck() == 3) {
-                    setCurMove(COMPUTER1, i);
-                    return i;
-                } else
-                    mTicTacToeBoard[i] = current;
+        //if the player is using the corner strategy
+        if (player_move_count == 1 && (mTicTacToeBoard[0] == 'X' || mTicTacToeBoard[2] == 'X' || mTicTacToeBoard[6] == 'X' || mTicTacToeBoard[8] == 'X')) {
+            setCurMove(COMPUTER1, 4);
+        } else {
+            for (int i = 0; i < getBoardSize(); i++) { //Check to see if the computer player can move to win the game
+                if (mTicTacToeBoard[i] != PLAYER1 && mTicTacToeBoard[i] != COMPUTER1) {
+                    char current = mTicTacToeBoard[i];
+                    mTicTacToeBoard[i] = COMPUTER1;
+                    if (WinnerCheck() == 3) {
+                        setCurMove(COMPUTER1, i);
+                        return i;
+                    } else
+                        mTicTacToeBoard[i] = current;
+                }
             }
-        }
 
-        for (int i = 0; i < getBoardSize(); i++) { //Check to see if the computer player needs to block a move
-            if (mTicTacToeBoard[i] != PLAYER1 && mTicTacToeBoard[i] != COMPUTER1) {
-                char current = mTicTacToeBoard[i];
-                mTicTacToeBoard[i] = PLAYER1; //if the player were to win at this spot the computer needs to block
-                if (WinnerCheck() == 2) {
-                    setCurMove(COMPUTER1, i); //if doesn't need to block set back to blank and continue
-                    return i;
-                } else
-                    mTicTacToeBoard[i] = current;
+            for (int i = 0; i < getBoardSize(); i++) { //Check to see if the computer player needs to block a move
+                if (mTicTacToeBoard[i] != PLAYER1 && mTicTacToeBoard[i] != COMPUTER1) {
+                    char current = mTicTacToeBoard[i]; //store a " " so we can set it back later
+                    mTicTacToeBoard[i] = PLAYER1; //if the player were to win at this spot the computer needs to block
+                    if (WinnerCheck() == 2) {
+                        setCurMove(COMPUTER1, i);
+                        return i;
+                    } else
+                        mTicTacToeBoard[i] = current; //if doesn't need to block set back to blank and continue
+                }
             }
+            do { //else the computer can go wherever it wants
+                move = mRandom.nextInt(getBoardSize());
+            } while (mTicTacToeBoard[move] == PLAYER1 || mTicTacToeBoard[move] == COMPUTER1);
+            setCurMove(COMPUTER1, move);
+            return move;
         }
-        do { //else the computer can go wherever it wants
-            move = mRandom.nextInt(getBoardSize());
-        }while (mTicTacToeBoard[move] == PLAYER1 || mTicTacToeBoard[move] == COMPUTER1);
-        setCurMove(COMPUTER1, move);
-        return move;
+        return 4;
     }
 
     public int WinnerCheck() {
