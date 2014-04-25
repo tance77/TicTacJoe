@@ -56,7 +56,7 @@ public class TicTacJoeGame {
             setCurMove(COMPUTER1, 4);
         }
         //in the player goes in the middle computer must play in corners
-        else if(player_move_count == 1 && mTicTacToeBoard[4] == PLAYER1){
+        else if(player_move_count == 1 && mTicTacToeBoard[4] == PLAYER1 && computer_move_count == 0){
             if(mTicTacToeBoard[0] != EMPTY_SPACE) //this means it is full with a certain character
             {
                 int tmp[] = {2,6,8};
@@ -66,7 +66,7 @@ public class TicTacJoeGame {
                 computer_move_count++;
                 return move;
             }
-            if(mTicTacToeBoard[2] != EMPTY_SPACE) //this means it is full with a certain character
+            else if(mTicTacToeBoard[2] != EMPTY_SPACE) //this means it is full with a certain character
             {
                 int tmp[] = {0,6,8};
                 move = mRandom.nextInt(3);
@@ -75,7 +75,7 @@ public class TicTacJoeGame {
                 computer_move_count++;
                 return move;
             }
-            if(mTicTacToeBoard[6] != EMPTY_SPACE) //this means it is full with a certain character
+            else if(mTicTacToeBoard[6] != EMPTY_SPACE) //this means it is full with a certain character
             {
                 int tmp[] = {0,2,8};
                 move = mRandom.nextInt(3);
@@ -84,10 +84,69 @@ public class TicTacJoeGame {
                 computer_move_count++;
                 return move;
             }
-            if(mTicTacToeBoard[8] != EMPTY_SPACE) //this means it is full with a certain character
+            else if(mTicTacToeBoard[8] != EMPTY_SPACE) //this means it is full with a certain character
             {
                 int tmp[] = {0,2,6};
                 move = mRandom.nextInt(3);
+                move = tmp[move];
+                setCurMove(COMPUTER1, move);
+                computer_move_count++;
+                return move;
+            }
+            else //none of the above
+            {
+                int tmp[] = {0,2,6,8};
+                move = mRandom.nextInt(4);
+                move = tmp[move];
+                setCurMove(COMPUTER1, move);
+                computer_move_count++;
+                return move;
+            }
+
+        }
+        //if the computer starts on a center tile not the middle piece and then the player plays on the center the computer then needs to play in a corner.
+        else if(player_move_count == 1 && mTicTacToeBoard[4] == PLAYER1 && computer_move_count == 1 &&
+                (mTicTacToeBoard[1] == COMPUTER1 ||  mTicTacToeBoard[3] == COMPUTER1 || mTicTacToeBoard[5] == COMPUTER1 || mTicTacToeBoard[7] == COMPUTER1)){
+            if(mTicTacToeBoard[0] != EMPTY_SPACE) //this means it is full with a certain character
+            {
+                int tmp[] = {2,6,8};
+                move = mRandom.nextInt(3);
+                move = tmp[move];
+                setCurMove(COMPUTER1, move);
+                computer_move_count++;
+                return move;
+            }
+            else if(mTicTacToeBoard[2] != EMPTY_SPACE) //this means it is full with a certain character
+            {
+                int tmp[] = {0,6,8};
+                move = mRandom.nextInt(3);
+                move = tmp[move];
+                setCurMove(COMPUTER1, move);
+                computer_move_count++;
+                return move;
+            }
+            else if(mTicTacToeBoard[6] != EMPTY_SPACE) //this means it is full with a certain character
+            {
+                int tmp[] = {0,2,8};
+                move = mRandom.nextInt(3);
+                move = tmp[move];
+                setCurMove(COMPUTER1, move);
+                computer_move_count++;
+                return move;
+            }
+            else if(mTicTacToeBoard[8] != EMPTY_SPACE) //this means it is full with a certain character
+            {
+                int tmp[] = {0,2,6};
+                move = mRandom.nextInt(3);
+                move = tmp[move];
+                setCurMove(COMPUTER1, move);
+                computer_move_count++;
+                return move;
+            }
+            else //none of the above all center middle pieces are empty
+            {
+                int tmp[] = {0,2,6,8};
+                move = mRandom.nextInt(4);
                 move = tmp[move];
                 setCurMove(COMPUTER1, move);
                 computer_move_count++;
