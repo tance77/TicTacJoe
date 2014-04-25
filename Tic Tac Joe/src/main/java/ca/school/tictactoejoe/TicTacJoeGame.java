@@ -39,36 +39,68 @@ public class TicTacJoeGame {
             mTicTacToeBoard[i] = EMPTY_SPACE;
         }
         player_move_count = 0;
+        computer_move_count = 0;
 
     }
 
     public void setCurMove(char player, int location) {
-        if(player == 'X')
-            player_move_count++;
         mTicTacToeBoard[location] = player;
+        if(player == PLAYER1)
+            player_move_count++;
     }
 
     public int getComputerMove() {
         int move;
         //if the player is using the corner strategy
-        if (player_move_count == 1 && (mTicTacToeBoard[0] == 'X' || mTicTacToeBoard[2] == 'X' || mTicTacToeBoard[6] == 'X' || mTicTacToeBoard[8] == 'X') && (mTicTacToeBoard[4] == ' ')) {
+        if (player_move_count == 1 && (mTicTacToeBoard[0] == PLAYER1 || mTicTacToeBoard[2] == PLAYER1 || mTicTacToeBoard[6] == PLAYER1 || mTicTacToeBoard[8] == PLAYER1) && (mTicTacToeBoard[4] == EMPTY_SPACE)) {
             setCurMove(COMPUTER1, 4);
         }
         //in the player goes in the middle computer must play in corners
-        else if(player_move_count == 1 && mTicTacToeBoard[4] == 'X'){
-            int tmp[] = {0,2,6,8};
-            move = mRandom.nextInt(4);
-            move = tmp[move];
-            setCurMove(COMPUTER1, move);
-            return move;
+        else if(player_move_count == 1 && mTicTacToeBoard[4] == PLAYER1){
+            if(mTicTacToeBoard[0] != EMPTY_SPACE) //this means it is full with a certain character
+            {
+                int tmp[] = {2,6,8};
+                move = mRandom.nextInt(3);
+                move = tmp[move];
+                setCurMove(COMPUTER1, move);
+                computer_move_count++;
+                return move;
+            }
+            if(mTicTacToeBoard[2] != EMPTY_SPACE) //this means it is full with a certain character
+            {
+                int tmp[] = {0,6,8};
+                move = mRandom.nextInt(3);
+                move = tmp[move];
+                setCurMove(COMPUTER1, move);
+                computer_move_count++;
+                return move;
+            }
+            if(mTicTacToeBoard[6] != EMPTY_SPACE) //this means it is full with a certain character
+            {
+                int tmp[] = {0,2,8};
+                move = mRandom.nextInt(3);
+                move = tmp[move];
+                setCurMove(COMPUTER1, move);
+                computer_move_count++;
+                return move;
+            }
+            if(mTicTacToeBoard[8] != EMPTY_SPACE) //this means it is full with a certain character
+            {
+                int tmp[] = {0,2,6};
+                move = mRandom.nextInt(3);
+                move = tmp[move];
+                setCurMove(COMPUTER1, move);
+                computer_move_count++;
+                return move;
+            }
         }
         //the player starts in the middle computer plays on the top left and the player plays in bottom right
         //the computer must play in corner 2 or 6
         else if(computer_move_count == 1 &&
                 player_move_count == 2 &&
-                mTicTacToeBoard[4] == 'X' &&
-                mTicTacToeBoard[0] == 'O' &&
-                mTicTacToeBoard[8]== 'X')
+                mTicTacToeBoard[4] == PLAYER1 &&
+                mTicTacToeBoard[0] == COMPUTER1 &&
+                mTicTacToeBoard[8]== PLAYER1)
         {
             int tmp[] = {2,6};
             move = mRandom.nextInt(2);
@@ -81,9 +113,9 @@ public class TicTacJoeGame {
         //computer must play in corner 0 or 8
         else if(computer_move_count == 1 &&
         player_move_count == 2 &&
-        mTicTacToeBoard[4] == 'X' &&
-        mTicTacToeBoard[2] == 'O' &&
-        mTicTacToeBoard[6]== 'X')
+        mTicTacToeBoard[4] == PLAYER1 &&
+        mTicTacToeBoard[2] == COMPUTER1 &&
+        mTicTacToeBoard[6]== PLAYER1)
         {
             int tmp[] = {0,8};
             move = mRandom.nextInt(2);
@@ -96,9 +128,9 @@ public class TicTacJoeGame {
         //computer must play in corner 0 or 8
         else if(computer_move_count == 1 &&
         player_move_count == 2 &&
-        mTicTacToeBoard[4] == 'X' &&
-        mTicTacToeBoard[6] == 'O' &&
-        mTicTacToeBoard[2]== 'X')
+        mTicTacToeBoard[4] == PLAYER1 &&
+        mTicTacToeBoard[6] == COMPUTER1 &&
+        mTicTacToeBoard[2]== PLAYER1)
         {
             int tmp[] = {0,8};
             move = mRandom.nextInt(2);
@@ -111,9 +143,9 @@ public class TicTacJoeGame {
         //computer must play corner 2 or 6
         else if(computer_move_count == 1 &&
         player_move_count == 2 &&
-        mTicTacToeBoard[4] == 'X' &&
-        mTicTacToeBoard[8] == 'O' &&
-        mTicTacToeBoard[0]== 'X')
+        mTicTacToeBoard[4] == PLAYER1 &&
+        mTicTacToeBoard[8] == COMPUTER1 &&
+        mTicTacToeBoard[0]== PLAYER1)
         {
             int tmp[] = {2,6};
             move = mRandom.nextInt(2);
