@@ -183,7 +183,7 @@ public class MainActivity extends Activity {
         if (!m_gameOver) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Start a new Game");
-        builder.setMessage("Are You Sure?");
+        builder.setMessage("Give up?");
 
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
@@ -216,7 +216,7 @@ public class MainActivity extends Activity {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
-                NewGame();
+                MainActivity.this.finish();
             }
         });
 
