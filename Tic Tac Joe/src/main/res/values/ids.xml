@@ -17,4 +17,6 @@
     <item name="tie_count" type="id"/>
     <item name="computer_wins" type="id"/>
     <item name="times_joe_kicked_ass" type="id"/>
+    <item name="new_game" type="id"/>
+    <item name="exit_game" type="id"/>
 </resources>

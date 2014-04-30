@@ -6,15 +6,16 @@
     <item android:id="@+id/action_settings"
         android:title="@string/action_settings"
         android:orderInCategory="100"
-        app:showAsAction="always" />
+        app:showAsAction="always"
+        android:icon="@android:drawable/ic_menu_manage"/>
 
-    <item
-        android:id="@+id/new_game"
-        android:title="@string/new_game"
-        android:icon="@android:drawable/ic_media_play"/>
-    <item
-        android:id="@+id/exit_game"
-        android:title="@string/exit_game"
-        android:icon="@android:drawable/ic_delete"/>
+    <!--<item-->
+        <!--android:id="@+id/new_game"-->
+        <!--android:title="@string/new_game"-->
+        <!--android:icon="@android:drawable/ic_media_play"/>-->
+    <!--<item-->
+        <!--android:id="@+id/exit_game"-->
+        <!--android:title="@string/exit_game"-->
+        <!--android:icon="@android:drawable/ic_delete"/>-->
 
 </menu>

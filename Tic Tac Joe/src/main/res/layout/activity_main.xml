@@ -233,4 +233,28 @@
 
     </TableLayout>
 
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/new_game"
+            android:id="@id/new_game"
+            android:layout_marginLeft="75dp"
+            android:onClick="newGameClick" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/exit_game"
+            android:id="@id/exit_game"
+            android:layout_marginRight="75dp"
+            android:layout_marginLeft="39dp"
+            android:onClick="exitGameClick" />
+    </TableRow>
+
 </LinearLayout>

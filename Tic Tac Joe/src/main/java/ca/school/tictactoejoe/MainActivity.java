@@ -1,15 +1,15 @@
 package ca.school.tictactoejoe;
 
-import android.graphics.Color;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.view.MenuInflater;
 
 public class MainActivity extends Activity {
 
@@ -138,7 +138,6 @@ public class MainActivity extends Activity {
                     }
                 }
             }
-            m_gameOver = false;
         }
     }
     private void setMove(char player, int location) //this set move calls tictacjoegame's setmove
@@ -155,7 +154,7 @@ public class MainActivity extends Activity {
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        
+
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
@@ -170,15 +169,64 @@ public class MainActivity extends Activity {
         {
             case R.id.new_game:
                 NewGame();
+                m_gameOver = false;
                 break;
             case R.id.exit_game:
                 MainActivity.this.finish();
                 break;
-        }
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
+            case R.id.action_settings:
+                break;
         }
         return super.onOptionsItemSelected(item);
+    }
+    public void newGameClick(View view) {
+        if (!m_gameOver) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Start a new Game");
+        builder.setMessage("Are You Sure?");
+
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                m_computerCounter++;
+                m_computerCount.setText(Integer.toString(m_computerCounter));
+                NewGame();
+                m_gameOver = false;
+            }
+        });
+
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        AlertDialog alert = builder.create();
+        alert.show();
+    } else {
+        NewGame();
+        m_gameOver = false;
+    }
+    }
+    public void exitGameClick(View view){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Exit");
+        builder.setMessage("Are You Sure?");
+
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                NewGame();
+            }
+        });
+
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 }
