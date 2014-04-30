@@ -235,7 +235,10 @@
 
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
+        android:layout_marginTop="40dp">
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -243,8 +246,11 @@
             android:layout_height="wrap_content"
             android:text="@string/new_game"
             android:id="@id/new_game"
-            android:layout_marginLeft="75dp"
-            android:onClick="newGameClick" />
+            android:onClick="newGameClick"
+            android:layout_marginLeft="10dp"
+            android:focusableInTouchMode="false"
+            android:fontFamily="serif"
+            android:textAlignment="center" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -252,9 +258,10 @@
             android:layout_height="wrap_content"
             android:text="@string/exit_game"
             android:id="@id/exit_game"
-            android:layout_marginRight="75dp"
-            android:layout_marginLeft="39dp"
-            android:onClick="exitGameClick" />
+            android:onClick="exitGameClick"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="serif"
+            android:textAlignment="center" />
     </TableRow>
 
 </LinearLayout>
