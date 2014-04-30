@@ -22,17 +22,14 @@
     <string name="num_of_player_wins">Player:  </string>
     <string name="num_of_ties">Ties:  </string>
     <string name="computer">Computer:  </string>
-
     <string name="contact_heading">Contact Info</string>
     <string name="about_heading">About:</string>
-    <string name="about_info">
-        This app lets you play against the never losing
-        Joe. Can you beat Joe?
-    </string>
-
+    <string name="about_info">        This app lets you play against the never losing
+        Joe. Can you beat Joe?</string>
     <string name="new_game">New Game</string>
     <string name="exit_game">Exit Game</string>
-
-
+    <string name="title_activity_startup_screen">StartupScreen</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">TIC TAC JOE</string>
 
 </resources>

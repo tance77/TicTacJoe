@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ca.school.tictactoejoe" >
-
+<uses-sdk
+    android:minSdkVersion="13"
+    android:maxSdkVersion="19"
+    android:targetSdkVersion="19"/>
     <application
         android:allowBackup="true"
         android:icon="@drawable/icon_launch"
@@ -10,6 +13,13 @@
         <activity
             android:name="ca.school.tictactoejoe.MainActivity"
             android:label="@string/app_name" >
+
+        </activity>
+        <activity
+            android:name="ca.school.tictactoejoe.StartupScreen"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_startup_screen"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
