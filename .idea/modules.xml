@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ProjectModuleManager">
-    <modules />
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Tic Tac Joe/Tic Tac Joe.iml" filepath="$PROJECT_DIR$/Tic Tac Joe/Tic Tac Joe.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TicTacJoe.iml" filepath="$PROJECT_DIR$/TicTacJoe.iml" />
+    </modules>
   </component>
 </project>
 
