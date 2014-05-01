@@ -259,6 +259,7 @@ public class TicTacJoeGame {
                         setCurMove(COMPUTER1, i);
                         computer_move_count++;
                         return i;
+
                     } else
                         mTicTacToeBoard[i] = current;
                 }
