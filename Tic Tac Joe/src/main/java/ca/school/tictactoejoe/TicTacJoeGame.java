@@ -54,9 +54,9 @@ public class TicTacJoeGame {
         //if the player is using the corner strategy
         if (player_move_count == 1 && computer_move_count == 0 &&
                 (mTicTacToeBoard[0] == PLAYER1 ||
-                mTicTacToeBoard[2] == PLAYER1 ||
-                mTicTacToeBoard[6] == PLAYER1 ||
-                mTicTacToeBoard[8] == PLAYER1)
+                        mTicTacToeBoard[2] == PLAYER1 ||
+                        mTicTacToeBoard[6] == PLAYER1 ||
+                        mTicTacToeBoard[8] == PLAYER1)
                 && (mTicTacToeBoard[4] == EMPTY_SPACE))
         {
             setCurMove(COMPUTER1, 4);
@@ -179,56 +179,56 @@ public class TicTacJoeGame {
         //the player starts in the middle computer plays in the top right player plays in the bottom left
         //computer must play in corner 0 or 8
         else if(computer_move_count == 1 &&
-        player_move_count == 2 &&
-        mTicTacToeBoard[4] == PLAYER1 &&
-        mTicTacToeBoard[2] == COMPUTER1 &&
-        mTicTacToeBoard[6]== PLAYER1)
+                player_move_count == 2 &&
+                mTicTacToeBoard[4] == PLAYER1 &&
+                mTicTacToeBoard[2] == COMPUTER1 &&
+                mTicTacToeBoard[6]== PLAYER1)
         {
             int tmp[] = {0,8};
             move = mRandom.nextInt(2);
             move = tmp[move];
             setCurMove(COMPUTER1, move);
             computer_move_count++;
-            return move;           
+            return move;
         }
         //player starts middle then computer plays bottom left then player plays top right
         //computer must play in corner 0 or 8
         else if(computer_move_count == 1 &&
-        player_move_count == 2 &&
-        mTicTacToeBoard[4] == PLAYER1 &&
-        mTicTacToeBoard[6] == COMPUTER1 &&
-        mTicTacToeBoard[2]== PLAYER1)
+                player_move_count == 2 &&
+                mTicTacToeBoard[4] == PLAYER1 &&
+                mTicTacToeBoard[6] == COMPUTER1 &&
+                mTicTacToeBoard[2]== PLAYER1)
         {
             int tmp[] = {0,8};
             move = mRandom.nextInt(2);
             move = tmp[move];
             setCurMove(COMPUTER1, move);
             computer_move_count++;
-            return move;           
+            return move;
         }
         //player starts middle, computer plays bottom right, player plays top right
         //computer must play corner 2 or 6
         else if(computer_move_count == 1 &&
-        player_move_count == 2 &&
-        mTicTacToeBoard[4] == PLAYER1 &&
-        mTicTacToeBoard[8] == COMPUTER1 &&
-        mTicTacToeBoard[0]== PLAYER1)
+                player_move_count == 2 &&
+                mTicTacToeBoard[4] == PLAYER1 &&
+                mTicTacToeBoard[8] == COMPUTER1 &&
+                mTicTacToeBoard[0]== PLAYER1)
         {
             int tmp[] = {2,6};
             move = mRandom.nextInt(2);
             move = tmp[move];
             setCurMove(COMPUTER1, move);
             computer_move_count++;
-            return move;           
+            return move;
         }
         //player starts corner then computer goes middle then player goes opposite corner
         else if((computer_move_count == 1 && player_move_count == 2) && (
                 (mTicTacToeBoard[0] == PLAYER1 &&
-                mTicTacToeBoard[4] == COMPUTER1 &&
-                mTicTacToeBoard[8]== PLAYER1) ||
-                (mTicTacToeBoard[2] == PLAYER1 &&
-                 mTicTacToeBoard[4] == COMPUTER1 &&
-                 mTicTacToeBoard[6]== PLAYER1)))
+                        mTicTacToeBoard[4] == COMPUTER1 &&
+                        mTicTacToeBoard[8]== PLAYER1) ||
+                        (mTicTacToeBoard[2] == PLAYER1 &&
+                                mTicTacToeBoard[4] == COMPUTER1 &&
+                                mTicTacToeBoard[6]== PLAYER1)))
         {
             int tmp[] = {1,3,5,7};
             move = mRandom.nextInt(4);
@@ -239,9 +239,9 @@ public class TicTacJoeGame {
         }
         else if((player_move_count == 1 && computer_move_count == 0) &&
                 (mTicTacToeBoard[1] == PLAYER1 ||
-                mTicTacToeBoard[3] == PLAYER1 ||
-                mTicTacToeBoard[5] == PLAYER1 ||
-                mTicTacToeBoard[7] == PLAYER1 ))
+                        mTicTacToeBoard[3] == PLAYER1 ||
+                        mTicTacToeBoard[5] == PLAYER1 ||
+                        mTicTacToeBoard[7] == PLAYER1 ))
         {
             int tmp[] = {0,2,6,8};
             move = mRandom.nextInt(4);

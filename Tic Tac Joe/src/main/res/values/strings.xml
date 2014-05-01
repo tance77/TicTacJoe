@@ -28,8 +28,12 @@
         Joe. Can you beat Joe?</string>
     <string name="new_game">New Game</string>
     <string name="exit_game">Exit Game</string>
-    <string name="title_activity_startup_screen">StartupScreen</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">TIC TAC JOE</string>
+    <string name="title_activity_one_player">OnePlayer</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="one_player">One Player: Human vs Computer</string>
+    <string name="two_player">Two Player: Human vs Human</string>
+    <string name="about">A B O U T</string>
+    <string name="title_activity_two_player">TwoPlayer</string>
+    <string name="title_activity_about">About</string>
 
 </resources>
