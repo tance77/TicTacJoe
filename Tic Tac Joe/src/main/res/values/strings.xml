@@ -29,9 +29,9 @@
     <string name="exit_game">Exit Game</string>
     <string name="title_activity_one_player">OnePlayer</string>
     <string name="hello_world">Hello world!</string>
-    <string name="one_player">One Player: Human vs Computer</string>
-    <string name="two_player">Two Player: Human vs Human</string>
-    <string name="about">A B O U T</string>
+    <string name="one_player">One Player</string>
+    <string name="two_player">Two Player</string>
+    <string name="about">About</string>
     <string name="title_activity_two_player">TwoPlayer</string>
     <string name="title_activity_about">About</string>
     <string name="player_1">Player 1\'s Turn</string>
@@ -40,5 +40,6 @@
     <string name="player_2_win">Player 2 Wins</string>
     <string name="player_1_score">Player 1:</string>
     <string name="player_2_score">Player 2:</string>
+    <string name="main_menu">Main Menu</string>
 
 </resources>

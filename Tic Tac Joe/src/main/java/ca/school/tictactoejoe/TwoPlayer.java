@@ -3,6 +3,7 @@ package ca.school.tictactoejoe;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
@@ -101,7 +102,7 @@ public class TwoPlayer extends Activity {
                         setMove(m_Game.PLAYER1, location);
                         m_first_player_turn = false;
                         m_info.setText(R.string.player_2);
-                        m_info.setTextColor(Color.rgb(196,116,81));
+                        m_info.setTextColor(Color.rgb(196, 116, 81));
 
                     }
                     else {
@@ -234,6 +235,30 @@ public class TwoPlayer extends Activity {
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
                 TwoPlayer.this.finish();
+            }
+        });
+
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
+    public void mainMenuClick(View view){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Main Menu");
+        builder.setMessage("Are You Sure?");
+
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                TwoPlayer.this.finish();
+                Intent intent = new Intent(TwoPlayer.this, MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
             }
         });
 

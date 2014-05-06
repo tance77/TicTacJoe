@@ -3,29 +3,56 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:background="@drawable/abc_ab_bottom_solid_dark_holo">
 
 
     <Button
         android:layout_width="fill_parent"
-        android:layout_height="50dp"
+        android:layout_height="100dp"
         android:text="@string/one_player"
         android:id="@+id/onePlayer"
-        android:textSize="20sp"/>
+        android:textSize="20dp"
+        android:textAlignment="center"
+        android:singleLine="false"
+        android:layout_marginTop="60dp"
+        android:maxHeight="20dp"
+        android:background="@drawable/abc_ab_solid_dark_holo"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:typeface="serif"
+        android:capitalize="words" />
 
     <Button
         android:layout_width="fill_parent"
-        android:layout_height="50dp"
+        android:layout_height="100dp"
         android:text="@string/two_player"
         android:id="@+id/twoPlayer"
-        android:textSize="20sp"/>
+        android:textSize="20dp"
+        android:textAlignment="center"
+        android:singleLine="false"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/abc_ab_solid_dark_holo"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:typeface="serif"
+        android:capitalize="words" />
 
     <Button
         android:layout_width="fill_parent"
-        android:layout_height="50dp"
+        android:layout_height="100dp"
         android:text="@string/about"
         android:id="@+id/about"
-        android:textSize="20sp"/>
+        android:textSize="20dp"
+        android:textAlignment="center"
+        android:singleLine="false"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/abc_ab_solid_dark_holo"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:typeface="serif"
+        android:clickable="false"
+        android:visibility="invisible" />
 
 
 </LinearLayout>
