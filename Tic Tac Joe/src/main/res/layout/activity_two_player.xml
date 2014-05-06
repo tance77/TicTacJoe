@@ -1,16 +1,275 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="ca.school.tictactoejoe.TwoPlayer">
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:weightSum="1"
+    android:background="@drawable/abc_ab_bottom_solid_dark_holo">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@id/playarea"
+        android:layout_marginTop="10dp">
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/one"
+                android:height="100dp"
+                android:width="100dp"
+                android:textSize="70dp"
+                android:id="@id/one"
+                android:longClickable="false"
+                android:typeface="serif" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/two"
+                android:id="@id/two"
+                android:height="100dp"
+                android:width="100dp"
+                android:layout_column="1"
+                android:textSize="70dp"
+                android:typeface="serif" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/three"
+                android:id="@id/three"
+                android:height="100dp"
+                android:width="100dp"
+                android:layout_column="3"
+                android:textSize="70dp"
+                android:typeface="serif" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center_horizontal">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/four"
+                android:id="@id/four"
+                android:height="100dp"
+                android:width="100dp"
+                android:textSize="70dp"
+                android:typeface="serif" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/five"
+                android:id="@id/five"
+                android:height="100dp"
+                android:width="100dp"
+                android:textSize="70dp"
+                android:typeface="serif" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/six"
+                android:id="@id/six"
+                android:height="100dp"
+                android:width="100dp"
+                android:textSize="70dp"
+                android:typeface="serif"
+                android:layout_column="3" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center_horizontal">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/seven"
+                android:id="@id/seven"
+                android:height="100dp"
+                android:width="100dp"
+                android:textSize="70dp"
+                android:typeface="serif" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/eight"
+                android:id="@id/eight"
+                android:height="100dp"
+                android:width="100dp"
+                android:textSize="70dp"
+                android:typeface="serif" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/nine"
+                android:id="@id/nine"
+                android:height="100dp"
+                android:width="100dp"
+                android:textSize="70dp"
+                android:typeface="serif"
+                android:layout_column="3" />
+        </TableRow>
+    </TableLayout>
 
     <TextView
-        android:text="@string/hello_world"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/info"
+        android:id="@id/information"
+        android:gravity="center_horizontal"
+        android:textSize="22dp"
+        android:textColor="#FFF" />
 
-</RelativeLayout>
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:gravity="center_vertical|center_horizontal|right"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp">
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/player_1_score"
+                android:id="@id/player"
+                android:layout_marginRight="10dp"
+                android:textColor="#ADD8E6"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/one"
+                android:id="@id/player_count"
+                android:layout_column="4"
+                android:layout_marginRight="10dp"
+                android:textColor="#ADD8E6"
+                android:textSize="16dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center_horizontal"
+            android:id="@+id/tableRow">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/num_of_ties"
+                android:id="@id/ties"
+                android:layout_column="0"
+                android:layout_marginRight="10dp"
+                android:textColor="#800000"
+                android:textStyle="bold"
+                android:textSize="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/one"
+                android:layout_column="4"
+                android:layout_marginRight="10dp"
+                android:id="@id/tie_count"
+                android:focusableInTouchMode="false"
+                android:textColor="#800000"
+                android:textSize="16dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center_horizontal"
+            android:id="@+id/tableRow2" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/player_2_score"
+                android:id="@id/computer_wins"
+                android:layout_marginRight="10dp"
+                android:textColor="#C47451"
+                android:textStyle="bold"
+                android:textSize="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/one"
+                android:id="@id/times_joe_kicked_ass"
+                android:layout_column="4"
+                android:layout_marginRight="10dp"
+                android:textColor="#C47451"
+                android:textSize="16dp" />
+        </TableRow>
+
+    </TableLayout>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
+        android:layout_marginTop="40dp">
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/new_game"
+            android:id="@id/new_game"
+            android:onClick="newGameClick"
+            android:layout_marginLeft="5dp"
+            android:focusableInTouchMode="false"
+            android:fontFamily="serif"
+            android:textAlignment="center" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/exit_game"
+            android:id="@id/exit_game"
+            android:onClick="exitGameClick"
+            android:layout_marginLeft="5dp"
+            android:fontFamily="serif"
+            android:textAlignment="center" />
+    </TableRow>
+
+</LinearLayout>

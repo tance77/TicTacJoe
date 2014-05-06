@@ -24,8 +24,7 @@
     <string name="computer">Computer:  </string>
     <string name="contact_heading">Contact Info</string>
     <string name="about_heading">About:</string>
-    <string name="about_info">        This app lets you play against the never losing
-        Joe. Can you beat Joe?</string>
+    <string name="about_info">This app lets you play against the never losing Joe. Can you beat Joe?</string>
     <string name="new_game">New Game</string>
     <string name="exit_game">Exit Game</string>
     <string name="title_activity_one_player">OnePlayer</string>
@@ -35,5 +34,11 @@
     <string name="about">A B O U T</string>
     <string name="title_activity_two_player">TwoPlayer</string>
     <string name="title_activity_about">About</string>
+    <string name="player_1">Player 1\'s Turn</string>
+    <string name="player_2">Player 2\'s Turn</string>
+    <string name="player_1_win">Player 1 Wins</string>
+    <string name="player_2_win">Player 2 Wins</string>
+    <string name="player_1_score">Player 1:</string>
+    <string name="player_2_score">Player 2:</string>
 
 </resources>
